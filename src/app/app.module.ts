@@ -8,6 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {AuthService } from './shared/services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './shared/services/auth.guard';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 @NgModule({
   declarations: [
     AppComponent
@@ -18,7 +20,9 @@ import { AuthGuard } from './shared/services/auth.guard';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SlimLoadingBarModule,
+    BrowserAnimationsModule
   ],
   exports: [
     RouterModule

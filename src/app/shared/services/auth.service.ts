@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable, pipe } from 'rxjs';
+import { Observable, pipe, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
+
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 const httpOptions = {
@@ -22,10 +23,11 @@ signUp(user): Observable<any> {
 return this.http.post(`${this.uri}users/signup`, user, httpOptions);
 }
 logIn(user): Observable<any> {
-return this.http.post(`${this.uri}users/login`, user, httpOptions );
+return this.http.post(`${this.uri}users/login`, user, httpOptions);
 }
 isAuthenticated() {
   this.token = window.localStorage.getItem('token');
   return this.token != null;
 }
+
 }

@@ -12,6 +12,10 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 loginForm: FormGroup;
 @Output() userData = new EventEmitter<Event>();
+isLoading: boolean = false;
+        
+
+
 
   constructor(private fb: FormBuilder,
     private authService: AuthService, private router: Router ) {
@@ -29,6 +33,7 @@ loginForm: FormGroup;
 
   onSubmit() {
     if (this.loginForm.valid) {
+      this.isLoading = !this.isLoading;
 const user = {
 'email' : this.loginForm.value.email,
 'password' : this.loginForm.value.password

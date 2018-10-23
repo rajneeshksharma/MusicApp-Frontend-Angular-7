@@ -39,7 +39,7 @@
 							</div>
 							<div class="row form-group">
 									<div class="col col-md-8">
-									  <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+									  <button [ladda]="isLoading" data-size="s" type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
 									</div>
 					  
 								  </div>

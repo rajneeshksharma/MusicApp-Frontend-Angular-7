@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './shared/services/auth.guard';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
+import { LaddaModule } from 'angular2-ladda';
 @NgModule({
   declarations: [
     AppComponent
@@ -22,7 +23,13 @@ import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
     ReactiveFormsModule,
     HttpClientModule,
     SlimLoadingBarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    LaddaModule.forRoot({
+      style: "expand-right",
+      spinnerSize: 30,
+      spinnerColor: "blue",
+      spinnerLines: 12,
+  })
   ],
   exports: [
     RouterModule

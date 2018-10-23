@@ -13,7 +13,7 @@ import { ReactiveFormsModule , FormsModule } from '@angular/forms';
 import { AuthService } from '../shared/services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from '../shared/services/auth.guard';
-
+import { LaddaModule } from 'angular2-ladda';
 
 @NgModule({
   imports: [
@@ -21,7 +21,8 @@ import { AuthGuard } from '../shared/services/auth.guard';
     UsersRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    LaddaModule
   ],
   declarations: [
     LoginComponent,

@@ -8,12 +8,20 @@ import { HeaderComponent } from '../shared/layout/header/header.component';
 import { SidebarComponent } from '../shared/layout/sidebar/sidebar.component';
 import { BreadcrumbComponent } from '../shared/layout/breadcrumb/breadcrumb.component';
 import { FooterComponent } from '../shared/layout/footer/footer.component';
+import { SignupComponent } from './signup/signup.component';
+import { ReactiveFormsModule , FormsModule } from '@angular/forms';
+import { AuthService } from '../shared/services/auth.service';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthGuard } from '../shared/services/auth.guard';
 
 
 @NgModule({
   imports: [
     CommonModule,
     UsersRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
   declarations: [
     LoginComponent,
@@ -22,12 +30,15 @@ import { FooterComponent } from '../shared/layout/footer/footer.component';
     HeaderComponent,
     SidebarComponent,
     BreadcrumbComponent,
-    FooterComponent
+    FooterComponent,
+    SignupComponent
   ],
   exports: [
     LoginComponent,
     UserComponent,
-    ArtistComponent
-  ]
+    ArtistComponent,
+    SignupComponent
+  ],
+  providers: [ AuthService, AuthGuard ]
 })
 export class UsersModule { }

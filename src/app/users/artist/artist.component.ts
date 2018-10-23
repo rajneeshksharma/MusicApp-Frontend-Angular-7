@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { unusedValueExportToPlacateAjd } from '@angular/core/src/render3/interfaces/definition';
 
 @Component({
   selector: 'app-artist',
@@ -10,6 +11,8 @@ export class ArtistComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+
   }
 
 }

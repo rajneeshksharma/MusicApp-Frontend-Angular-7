@@ -14,6 +14,8 @@ import { AuthService } from '../shared/services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from '../shared/services/auth.guard';
 import { LaddaModule } from 'angular2-ladda';
+import { DataService } from '../shared/services/data.service';
+import { SongsComponent } from './in/songs/songs.component';
 
 @NgModule({
   imports: [
@@ -22,7 +24,12 @@ import { LaddaModule } from 'angular2-ladda';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    LaddaModule
+    LaddaModule.forRoot({
+      style: 'expand-right',
+      spinnerSize: 30,
+      spinnerColor: 'white',
+      spinnerLines: 12,
+  })
   ],
   declarations: [
     LoginComponent,
@@ -32,7 +39,8 @@ import { LaddaModule } from 'angular2-ladda';
     SidebarComponent,
     BreadcrumbComponent,
     FooterComponent,
-    SignupComponent
+    SignupComponent,
+    SongsComponent
   ],
   exports: [
     LoginComponent,
@@ -40,6 +48,6 @@ import { LaddaModule } from 'angular2-ladda';
     ArtistComponent,
     SignupComponent
   ],
-  providers: [ AuthService, AuthGuard ]
+  providers: [ AuthService, AuthGuard, DataService ]
 })
 export class UsersModule { }

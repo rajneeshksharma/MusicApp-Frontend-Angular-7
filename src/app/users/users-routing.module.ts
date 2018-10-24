@@ -6,12 +6,14 @@ import { ArtistComponent } from './artist/artist.component';
 import { UserComponent } from './user/user.component';
 import { SignupComponent } from './signup/signup.component';
 import { AuthGuard } from '../shared/services/auth.guard';
+import { SongsComponent } from './in/songs/songs.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'artist', component: ArtistComponent, canActivate: [ AuthGuard]},
   {path: 'user', component: UserComponent, canActivate: [ AuthGuard]},
   {path: 'signup', component: SignupComponent},
+  {path: 'songs', component: SongsComponent},
   {path: '**', component: LoginComponent}
 ];
 

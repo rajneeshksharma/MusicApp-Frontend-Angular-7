@@ -27,7 +27,15 @@
               "node_modules/primeng/resources/primeng.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/jquery-1.11.1.min.js",
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/chart.min.js",
+              "src/assets/js/chart-data.js",             "src/assets/js/easypiechart.js",
+             "src/assets/js/easypiechart-data.js",
+              "src/assets/js/bootstrap-datepicker.js",
+              "src/assets/js/custom.js"
+            ]
           },
           "configurations": {
             "production": {

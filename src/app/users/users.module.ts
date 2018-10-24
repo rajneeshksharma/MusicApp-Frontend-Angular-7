@@ -19,6 +19,10 @@ import { SongsComponent } from './in/songs/songs.component';
 import {TableModule} from 'primeng/table';
 import {PasswordModule} from 'primeng/password';
 import {CheckboxModule} from 'primeng/checkbox';
+import {InputTextModule} from 'primeng/inputtext';
+import {SliderModule} from 'primeng/slider';
+import {RatingModule} from 'primeng/rating';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -28,7 +32,10 @@ import {CheckboxModule} from 'primeng/checkbox';
     HttpClientModule,
     PasswordModule,
     TableModule,
+    InputTextModule,
     CheckboxModule,
+    RatingModule,
+    SliderModule,
     LaddaModule.forRoot({
       style: 'expand-right',
       spinnerSize: 30,

@@ -7,16 +7,16 @@ import { DataService } from 'src/app/shared/services/data.service';
   styleUrls: ['./songs.component.css']
 })
 export class SongsComponent implements OnInit {
-  songsData: any;
+
   constructor(private dataservice: DataService) { }
 
+  msg: string;
+
+    handleRate(event) {
+        this.msg = "You have rated " + event.value +" Star :)";
+    }
 
   ngOnInit() {
-    this.dataservice.getSongs().subscribe(
-      data => {
-        this.songsData = data.docs;
-        console.log(this.songsData, 'SONGSSSSSSSSSSSSSSSSSSS');
-      });
   }
 
 }

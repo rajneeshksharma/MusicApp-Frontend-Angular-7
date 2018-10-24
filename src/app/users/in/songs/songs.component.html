@@ -3,12 +3,28 @@
 <!--/.sidebar-->
 
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-   
-<app-breadcrumb></app-breadcrumb>
+
+    <app-breadcrumb></app-breadcrumb>
+     <p-table [value]="songsData">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Tittle</th>
+                <th>Link</th>
+                <th>Created by</th>
+                <th>Option</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-songsData>
+            <tr>
+                <td>{{songsData.title}}</td>
+                <td>{{songsData.url}}</td>
+                <td>{{songsData.artist.firstName}}</td>
+                <td>{{test}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
 
 
-
-
-<app-footer></app-footer>
-<!--/.row-->
+    <app-footer></app-footer>
+    <!--/.row-->
 </div>

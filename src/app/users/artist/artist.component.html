@@ -35,6 +35,31 @@
       </div>
       <!--/.row-->
     </div>
+    <p-table [value]="songsData">
+      <ng-template pTemplate="header">
+          <tr>
+              <th>Tittle</th>
+              <th>Link</th>
+              <th>Created by</th>
+              <th>Option</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-songsData>
+          <tr>
+              <td>{{songsData.title}}</td>
+              <td>{{songsData.url}}</td>
+              <td>{{songsData.artist.firstName}}</td>
+              <td></td>
+          </tr>
+      </ng-template>
+  </p-table>
+
+
+
+  <div style="height: 100px" >
+
+  </div>
+
   
 
   <app-footer></app-footer>

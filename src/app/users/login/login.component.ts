@@ -12,9 +12,8 @@ import { DataService } from 'src/app/shared/services/data.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  @Output() userData = new EventEmitter<Event>();
   isLoading = false;
-
+  checked = false;
 
 
   constructor(private fb: FormBuilder,
@@ -42,7 +41,6 @@ export class LoginComponent implements OnInit {
       this.authService.logIn(user).subscribe(data => {
         localStorage.setItem('token', data.user.token);
         localStorage.setItem('username', data.user.firstName);
-        this.userData.emit(data);
         if (data.user.role === 1) {
           this.router.navigate(['/users/artist']);
         } else if (data.user.role === 2) {

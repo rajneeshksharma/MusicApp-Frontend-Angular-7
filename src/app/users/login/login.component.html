@@ -31,15 +31,18 @@
 												  </span>
 										  </div>
 										</div>
-									  </div>
-							<div class="checkbox">
+										</div>
+										<hr>							
+										<div class="checkbox row form-group">
 								<label>
-									<input name="remember" type="checkbox" value="Remember Me">Remember Me
+										<p-checkbox [(ngModel)]="checked" binary="true"></p-checkbox>
+									<!-- <input name="remember" type="checkbox" value="Remember Me"> -->
+									Remember Me
 								</label>
 							</div>
 							<div class="row form-group">
 									<div class="col col-md-8">
-									  <button [ladda]="isLoading" data-size="s" type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+									  <button [ladda]="isLoading" data-size="l" type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
 									</div>
 					  
 								  </div>

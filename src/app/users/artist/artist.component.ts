@@ -10,6 +10,7 @@ export class ArtistComponent implements OnInit {
   data: any;
   totalSongs: number;
   totalPlaylist: number;
+  songsData: any;
   constructor(private dataservice: DataService) { }
 
 
@@ -24,6 +25,7 @@ export class ArtistComponent implements OnInit {
     this.dataservice.getSongs().subscribe(
       data => {
         console.log(data, 'at artist file');
+        this.songsData = data.docs;
         this.dataservice.sendSongData(data);
       });
       this.dataservice.getPlaylist().subscribe(res2 => {

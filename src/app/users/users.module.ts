@@ -16,7 +16,9 @@ import { AuthGuard } from '../shared/services/auth.guard';
 import { LaddaModule } from 'angular2-ladda';
 import { DataService } from '../shared/services/data.service';
 import { SongsComponent } from './in/songs/songs.component';
-
+import {TableModule} from 'primeng/table';
+import {PasswordModule} from 'primeng/password';
+import {CheckboxModule} from 'primeng/checkbox';
 @NgModule({
   imports: [
     CommonModule,
@@ -24,6 +26,9 @@ import { SongsComponent } from './in/songs/songs.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    PasswordModule,
+    TableModule,
+    CheckboxModule,
     LaddaModule.forRoot({
       style: 'expand-right',
       spinnerSize: 30,

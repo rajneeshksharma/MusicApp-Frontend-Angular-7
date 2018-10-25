@@ -30,7 +30,6 @@ export class DataService {
     };
     return httpOptions;
   }
-
   getSongs(): Observable<any> {
     const header = this.gethttpOptions();
     return this.http.get(`${this.uri}songs`, header);
@@ -39,5 +38,8 @@ export class DataService {
     const header = this.gethttpOptions();
     return this.http.get(`${this.uri}playlist`, header);
   }
-
+  addSong(data): Observable<any> {
+    const header = this.gethttpOptions();
+    return this.http.post(`${this.uri}/songs`, data, header);
+  }
 }

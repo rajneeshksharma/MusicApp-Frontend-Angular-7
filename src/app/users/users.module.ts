@@ -22,6 +22,9 @@ import {CheckboxModule} from 'primeng/checkbox';
 import {InputTextModule} from 'primeng/inputtext';
 import {SliderModule} from 'primeng/slider';
 import {RatingModule} from 'primeng/rating';
+import { PlaylistComponent } from './in/playlist/playlist.component';
+import {MultiSelectModule} from 'primeng/multiselect';
+import {ListboxModule} from 'primeng/listbox';
 
 @NgModule({
   imports: [
@@ -36,6 +39,8 @@ import {RatingModule} from 'primeng/rating';
     CheckboxModule,
     RatingModule,
     SliderModule,
+    ListboxModule,
+    MultiSelectModule,
     LaddaModule.forRoot({
       style: 'expand-right',
       spinnerSize: 30,
@@ -52,7 +57,8 @@ import {RatingModule} from 'primeng/rating';
     BreadcrumbComponent,
     FooterComponent,
     SignupComponent,
-    SongsComponent
+    SongsComponent,
+    PlaylistComponent
   ],
   exports: [
     LoginComponent,

@@ -35,6 +35,7 @@
       </div>
       <!--/.row-->
     </div>
+ 
     <p-table [value]="songsData">
       <ng-template pTemplate="header">
           <tr>
@@ -53,8 +54,13 @@
           </tr>
       </ng-template>
   </p-table>
+  <span>
+      Page number: => 
+      <p-selectButton [options]="types" [(ngModel)]="selectedType" (click)="pageChange(selectedType)"></p-selectButton>
+    </span>
 
 
+    <p>Selected Type: <span style="font-weight: bold">{{selectedType}}</span></p>
 
   <div style="height: 100px" >
 

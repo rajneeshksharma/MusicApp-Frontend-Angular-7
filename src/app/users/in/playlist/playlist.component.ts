@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SelectItem } from 'primeng/components/common/selectitem';
 import { DataService } from 'src/app/shared/services/data.service';
-import { type } from 'os';
+
 
 
 @Component({
@@ -15,7 +14,7 @@ export class PlaylistComponent implements OnInit {
 
 
   constructor(private dataService: DataService) {
-    console.log(this.test, 'out');
+
   }
 
   ngOnInit() {

@@ -25,7 +25,8 @@ import {RatingModule} from 'primeng/rating';
 import { PlaylistComponent } from './in/playlist/playlist.component';
 import {MultiSelectModule} from 'primeng/multiselect';
 import {ListboxModule} from 'primeng/listbox';
-
+import {PaginatorModule} from 'primeng/paginator';
+import {SelectButtonModule} from 'primeng/selectbutton';
 @NgModule({
   imports: [
     CommonModule,
@@ -39,6 +40,8 @@ import {ListboxModule} from 'primeng/listbox';
     CheckboxModule,
     RatingModule,
     SliderModule,
+    PaginatorModule,
+    SelectButtonModule,
     ListboxModule,
     MultiSelectModule,
     LaddaModule.forRoot({

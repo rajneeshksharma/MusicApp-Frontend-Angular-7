@@ -8,7 +8,7 @@ import { Subject } from 'rxjs/Subject';
 })
 export class DataService {
 
-  uri = 'https://boiling-headland-59043.herokuapp.com/api/';
+  uri = 'http://localhost:8000/api/';
 
   constructor(private http: HttpClient) { }
 
@@ -30,9 +30,9 @@ export class DataService {
     };
     return httpOptions;
   }
-  getSongs(): Observable<any> {
+  getSongs(page): Observable<any> {
     const header = this.gethttpOptions();
-    return this.http.get(`${this.uri}songs`, header);
+    return this.http.get(`${this.uri}songs?perPage=5&page=${page}`, header);
   }
   getPlaylist(): Observable<any> {
     const header = this.gethttpOptions();

@@ -14,7 +14,7 @@ const httpOptions = {
 export class AuthService {
 
 
-  uri = 'https://boiling-headland-59043.herokuapp.com/api/';
+  uri = 'http://localhost:8000/api/';
   token: any;
   constructor(private http: HttpClient) { }
 

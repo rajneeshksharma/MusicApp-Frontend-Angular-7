@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Subject } from 'rxjs/Subject';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,10 +13,13 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   private subject = new BehaviorSubject<any>(0);
+
   public mysubject = this.subject.asObservable();
+
   getSongData(): Observable<any> {
     return this.subject.asObservable();
   }
+
   sendSongData(data) {
     this.subject.next(data);
   }
@@ -30,14 +33,17 @@ export class DataService {
     };
     return httpOptions;
   }
+
   getSongs(page): Observable<any> {
     const header = this.gethttpOptions();
     return this.http.get(`${this.uri}songs?perPage=5&page=${page}`, header);
   }
+
   getPlaylist(): Observable<any> {
     const header = this.gethttpOptions();
     return this.http.get(`${this.uri}playlist`, header);
   }
+
   addSong(data): Observable<any> {
     const header = this.gethttpOptions();
     return this.http.post(`${this.uri}/songs`, data, header);

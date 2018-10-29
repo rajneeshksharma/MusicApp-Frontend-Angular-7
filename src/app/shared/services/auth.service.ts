@@ -12,8 +12,6 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AuthService {
-
-
   uri = 'http://localhost:8000/api/';
   token: any;
   constructor(private http: HttpClient) { }
@@ -29,5 +27,9 @@ isAuthenticated() {
   this.token = window.localStorage.getItem('token');
   return this.token != null;
 }
+forPass(user): Observable<any> {
+  return this.http.post(`${this.uri}users/forpass`, user, httpOptions);
+}
+
 
 }

@@ -55,7 +55,7 @@ export class SignupComponent implements OnInit {
         'role': this.signupForm.value.role
       };
       this.authService.signUp(user).subscribe(datax => {
-      console.log(datax, 'RESPONE FROM SERVER @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@' );
+      console.log(datax, 'RESPONE FROM SERVER');
       this.signupSuccessful = true;
       this.signupForm.reset();
       });

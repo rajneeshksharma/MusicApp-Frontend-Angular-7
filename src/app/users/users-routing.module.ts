@@ -8,15 +8,17 @@ import { SignupComponent } from './signup/signup.component';
 import { AuthGuard } from '../shared/services/auth.guard';
 import { SongsComponent } from './in/songs/songs.component';
 import { PlaylistComponent } from './in/playlist/playlist.component';
+import { ForpassComponent } from './forpass/forpass.component';
 
 const routes: Routes = [
-  {path: '', component: LoginComponent},
-  {path: 'artist', component: ArtistComponent, canActivate: [ AuthGuard]},
-  {path: 'user', component: UserComponent, canActivate: [ AuthGuard]},
-  {path: 'signup', component: SignupComponent },
-  {path: 'songs', component: SongsComponent, canActivate: [ AuthGuard]},
-  {path: 'playlist', component: PlaylistComponent, canActivate: [ AuthGuard]},
-  {path: '**', component: LoginComponent}
+  { path: '', component: LoginComponent },
+  { path: 'artist', component: ArtistComponent, canActivate: [AuthGuard] },
+  { path: 'user', component: UserComponent, canActivate: [AuthGuard] },
+  { path: 'signup', component: SignupComponent },
+  { path: 'songs', component: SongsComponent, canActivate: [AuthGuard] },
+  { path: 'playlist', component: PlaylistComponent, canActivate: [AuthGuard] },
+  { path: 'forpass', component: ForpassComponent }
+  // { path: '**', component: LoginComponent }
 ];
 
 
@@ -26,7 +28,7 @@ const routes: Routes = [
     CommonModule
   ],
   exports: [
-RouterModule
+    RouterModule
   ],
   declarations: []
 })

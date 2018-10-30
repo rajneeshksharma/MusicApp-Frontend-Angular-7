@@ -27,6 +27,7 @@ import {MultiSelectModule} from 'primeng/multiselect';
 import {ListboxModule} from 'primeng/listbox';
 import {PaginatorModule} from 'primeng/paginator';
 import {SelectButtonModule} from 'primeng/selectbutton';
+import { ForpassComponent } from './forpass/forpass.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -61,7 +62,8 @@ import {SelectButtonModule} from 'primeng/selectbutton';
     FooterComponent,
     SignupComponent,
     SongsComponent,
-    PlaylistComponent
+    PlaylistComponent,
+    ForpassComponent
   ],
   exports: [
     LoginComponent,

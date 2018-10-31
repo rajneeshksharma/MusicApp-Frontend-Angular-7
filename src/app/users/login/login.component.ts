@@ -3,6 +3,11 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/shared/services/data.service';
+import {
+  SocialAuthService,
+  GoogleLoginProvider
+} from 'ng-social';
+
 
 
 @Component({
@@ -19,9 +24,17 @@ export class LoginComponent implements OnInit {
   laddaVal = true;
   forgotPass = true;
   forpassDone = false;
+  fullName: any;
+  name: string;
+  display = false;
+  firstName: string;
+  lastName: string;
+  userSocial_id: any;
+
   constructor(private fb: FormBuilder,
     private authService: AuthService, private router: Router,
-    private dataService: DataService) {
+    private dataService: DataService,
+    private socialAuthService: SocialAuthService) {
     this.loginForm = fb.group({
       'email': ['', [
         Validators.required,
@@ -40,11 +53,79 @@ export class LoginComponent implements OnInit {
     });
 
   }
+
+
+
+
+
+
+  public socialLogin(platform: string) {
+    let socialPlatformProvider;
+
+    socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+    this.socialAuthService.signIn(socialPlatformProvider).then((userData) => {
+
+      this.name = userData.name;
+      this.fullName = this.name.split(' ');
+      this.firstName = this.fullName[0];
+      this.lastName = this.fullName[this.fullName.length - 1];
+      // tslint:disable-next-line:max-line-length
+      console.log(platform + ' login in data : ', userData, userData.email, userData.id, this.firstName, this.lastName);
+      this.userSocial_id = userData.id;
+      const socialUser = {
+        firstName: this.firstName,
+        lastName: this.lastName,
+        email: userData.email,
+        social_id: userData.id,
+        provider: userData.provider
+      };
+      this.authService.socialcontrol(socialUser).subscribe(res => {
+        console.log(res);
+        localStorage.setItem('token', res.user.token);
+        localStorage.setItem('username', res.user.firstName);
+
+        if (res.user.role === 1) {
+          this.router.navigate(['/users/artist']);
+        } else if (res.user.role === 2) {
+          this.router.navigate(['/users/user']);
+        } else {
+          this.display = true;
+          console.log('role not selected');
+        }
+      }, err => {
+        console.error(err);
+      });
+
+    });
+  }
+
   forgotPassword() {
     this.forgotPass = false;
   }
   loginAgain() {
     this.forgotPass = true;
+  }
+  userRole(data) {
+    console.log(data);
+    const socialChange = {
+      role: data,
+      social_id: this.userSocial_id
+    };
+    console.log(socialChange, 'at start');
+    this.authService.userRole(socialChange).subscribe(
+      res => {
+        if (res.user.role === 1) {
+          this.router.navigate(['/users/artist']);
+        } else if (res.user.role === 2) {
+          this.router.navigate(['/users/user']);
+        } else {
+          console.log('role not selected');
+        }
+        this.display = false;
+      }, err => {
+        console.log(err);
+      }
+    );
   }
 
   onSubmit() {

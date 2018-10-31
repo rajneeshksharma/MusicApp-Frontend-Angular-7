@@ -37,4 +37,11 @@ export class AuthService {
     console.log(user, 'ffffffffffffffffff');
     return this.http.post(`${this.uri}users/newpass`, user , httpOptions);
   }
+  socialcontrol(user): Observable<any> {
+    return this.http.post(`${this.uri}users/socialcontrol`, user , httpOptions);
+  }
+  userRole(user): Observable<any> {
+    console.log(user, 'service');
+    return this.http.post(`${this.uri}users/socialRole`, user , httpOptions);
+  }
 }

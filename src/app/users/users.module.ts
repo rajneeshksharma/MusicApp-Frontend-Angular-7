@@ -7,27 +7,44 @@ import { ArtistComponent } from './artist/artist.component';
 import { HeaderComponent } from '../shared/layout/header/header.component';
 import { SidebarComponent } from '../shared/layout/sidebar/sidebar.component';
 import { BreadcrumbComponent } from '../shared/layout/breadcrumb/breadcrumb.component';
+import { NgSocialModule, AuthServiceConfig, GoogleLoginProvider } from 'ng-social';
 import { FooterComponent } from '../shared/layout/footer/footer.component';
 import { SignupComponent } from './signup/signup.component';
-import { ReactiveFormsModule , FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AuthService } from '../shared/services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from '../shared/services/auth.guard';
 import { LaddaModule } from 'angular2-ladda';
 import { DataService } from '../shared/services/data.service';
 import { SongsComponent } from './in/songs/songs.component';
-import {TableModule} from 'primeng/table';
-import {PasswordModule} from 'primeng/password';
-import {CheckboxModule} from 'primeng/checkbox';
-import {InputTextModule} from 'primeng/inputtext';
-import {SliderModule} from 'primeng/slider';
-import {RatingModule} from 'primeng/rating';
+import { TableModule } from 'primeng/table';
+import {DialogModule} from 'primeng/dialog';
+
+import { PasswordModule } from 'primeng/password';
+import { CheckboxModule } from 'primeng/checkbox';
+import { InputTextModule } from 'primeng/inputtext';
+import { SliderModule } from 'primeng/slider';
+import { RatingModule } from 'primeng/rating';
 import { PlaylistComponent } from './in/playlist/playlist.component';
-import {MultiSelectModule} from 'primeng/multiselect';
-import {ListboxModule} from 'primeng/listbox';
-import {PaginatorModule} from 'primeng/paginator';
-import {SelectButtonModule} from 'primeng/selectbutton';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { ListboxModule } from 'primeng/listbox';
+import { PaginatorModule } from 'primeng/paginator';
+import { SelectButtonModule } from 'primeng/selectbutton';
 import { ForpassComponent } from './forpass/forpass.component';
+
+export function getAuthServiceConfigs() {
+  const config = new AuthServiceConfig(
+    [
+      {
+        id: GoogleLoginProvider.PROVIDER_ID,
+        provider: new GoogleLoginProvider('953381558791-rta6t6c7je9v28pkhdr7hdtktdi3h70v.apps.googleusercontent.com')
+      },
+    ]
+  );
+  return config;
+}
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -40,9 +57,11 @@ import { ForpassComponent } from './forpass/forpass.component';
     InputTextModule,
     CheckboxModule,
     RatingModule,
+    DialogModule,
     SliderModule,
     PaginatorModule,
     SelectButtonModule,
+    NgSocialModule,
     ListboxModule,
     MultiSelectModule,
     LaddaModule.forRoot({
@@ -50,7 +69,7 @@ import { ForpassComponent } from './forpass/forpass.component';
       spinnerSize: 30,
       spinnerColor: 'white',
       spinnerLines: 12,
-  })
+    })
   ],
   declarations: [
     LoginComponent,
@@ -71,6 +90,10 @@ import { ForpassComponent } from './forpass/forpass.component';
     ArtistComponent,
     SignupComponent
   ],
-  providers: [ AuthService, AuthGuard, DataService ]
+  providers: [
+    {
+      provide: AuthServiceConfig,
+      useFactory: getAuthServiceConfigs
+    }, AuthService, AuthGuard, DataService]
 })
 export class UsersModule { }

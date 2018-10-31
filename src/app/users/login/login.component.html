@@ -58,6 +58,7 @@
 						</fieldset>
 					</form>
 					<div>
+							<button (click)="socialLogin('google')">Log in with Google</button>  <br>  
 						<a (click)=forgotPassword()>Forget Password</a>
 						<p>if you are new to our website please <a routerLink="/users/signup">SIGNUP Here</a></p>
 					</div>
@@ -100,3 +101,11 @@
 			</div>
 		</div><!-- /.col-->
 	</div><!-- /.row -->
+	<p-dialog header="Yoy have to select one role" [(visible)]="display" [modal]="true" [responsive]="true" [width]="300" [minWidth]="200" [minY]="70"  [closable]="false" [baseZIndex]="10000">
+<span>
+Role => <button (click)="userRole(1)" class="btn btn-primary">Artist</button> &nbsp;&nbsp;&nbsp; Role =>	<button (click)="userRole(2)" class="btn btn-primary">User</button></span>
+</p-dialog>
+
+
+
+

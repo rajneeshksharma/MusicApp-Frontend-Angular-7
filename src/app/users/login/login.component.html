@@ -52,14 +52,19 @@
 									<div *ngIf="!laddaVal">
 										<button [ladda]="false" [ladda]="isLoading" data-size="l" type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
 									</div>
-
+									
 								</div>
 							</div>
+							<div class="googleButton">
+								<button (click)="socialLogin('google')" class="loginBtn loginBtn--google">
+									Login / Signup with Google
+								  </button>
+								</div>
 						</fieldset>
 					</form>
-					<div>
-							<button (click)="socialLogin('google')">Log in with Google</button>  <br>  
-						<a (click)=forgotPassword()>Forget Password</a>
+					<div> 
+								
+								<a (click)=forgotPassword()>Forgot Password</a>
 						<p>if you are new to our website please <a routerLink="/users/signup">SIGNUP Here</a></p>
 					</div>
 				</div>

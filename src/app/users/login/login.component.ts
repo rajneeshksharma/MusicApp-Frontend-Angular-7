@@ -106,7 +106,6 @@ export class LoginComponent implements OnInit {
     this.forgotPass = true;
   }
   userRole(data) {
-    console.log(data);
     const socialChange = {
       role: data,
       social_id: this.userSocial_id
@@ -114,6 +113,7 @@ export class LoginComponent implements OnInit {
     console.log(socialChange, 'at start');
     this.authService.userRole(socialChange).subscribe(
       res => {
+        console.log(res);
         if (res.user.role === 1) {
           this.router.navigate(['/users/artist']);
         } else if (res.user.role === 2) {

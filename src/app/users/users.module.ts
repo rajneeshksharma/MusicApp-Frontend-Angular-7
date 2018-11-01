@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from '../shared/services/auth.guard';
 import { LaddaModule } from 'angular2-ladda';
 import { DataService } from '../shared/services/data.service';
+import {KeyFilterModule} from 'primeng/keyfilter';
 import { SongsComponent } from './in/songs/songs.component';
 import { TableModule } from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
@@ -31,6 +32,7 @@ import { ListboxModule } from 'primeng/listbox';
 import { PaginatorModule } from 'primeng/paginator';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { ForpassComponent } from './forpass/forpass.component';
+import { SearchComponent } from './in/search/search.component';
 
 export function getAuthServiceConfigs() {
   const config = new AuthServiceConfig(
@@ -57,6 +59,7 @@ export function getAuthServiceConfigs() {
     InputTextModule,
     CheckboxModule,
     RatingModule,
+    KeyFilterModule,
     DialogModule,
     SliderModule,
     PaginatorModule,
@@ -82,7 +85,8 @@ export function getAuthServiceConfigs() {
     SignupComponent,
     SongsComponent,
     PlaylistComponent,
-    ForpassComponent
+    ForpassComponent,
+    SearchComponent
   ],
   exports: [
     LoginComponent,

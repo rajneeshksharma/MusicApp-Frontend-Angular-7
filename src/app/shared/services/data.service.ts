@@ -48,4 +48,8 @@ export class DataService {
     const header = this.gethttpOptions();
     return this.http.post(`${this.uri}/songs`, data, header);
   }
+  searchSong(data): Observable <any> {
+  const header = this.gethttpOptions();
+  return this.http.post(`${this.uri}songs/search`, data, header);
+  }
 }

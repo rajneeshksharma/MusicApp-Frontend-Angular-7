@@ -52,19 +52,19 @@
 									<div *ngIf="!laddaVal">
 										<button [ladda]="false" [ladda]="isLoading" data-size="l" type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
 									</div>
-									
+
 								</div>
 							</div>
 							<div class="googleButton">
 								<button (click)="socialLogin('google')" class="loginBtn loginBtn--google">
 									Login / Signup with Google
-								  </button>
-								</div>
+								</button>
+							</div>
 						</fieldset>
 					</form>
-					<div> 
-								
-								<a (click)=forgotPassword()>Forgot Password</a>
+					<div>
+
+						<a (click)=forgotPassword()>Forgot Password</a>
 						<p>if you are new to our website please <a routerLink="/users/signup">SIGNUP Here</a></p>
 					</div>
 				</div>
@@ -106,11 +106,9 @@
 			</div>
 		</div><!-- /.col-->
 	</div><!-- /.row -->
-	<p-dialog header="Yoy have to select one role" [(visible)]="display" [modal]="true" [responsive]="true" [width]="300" [minWidth]="200" [minY]="70"  [closable]="false" [baseZIndex]="10000">
-<span>
-Role => <button (click)="userRole(1)" class="btn btn-primary">Artist</button> &nbsp;&nbsp;&nbsp; Role =>	<button (click)="userRole(2)" class="btn btn-primary">User</button></span>
-</p-dialog>
-
-
-
-
+	<p-dialog header="Yoy have to select one role" [(visible)]="display" [modal]="true" [responsive]="true" [width]="300"
+	 [minWidth]="200" [minY]="70" [closable]="false" [baseZIndex]="10000">
+		<span>
+			Role => <button (click)="userRole(1)" class="btn btn-primary">Artist</button> &nbsp;&nbsp;&nbsp; Role => <button
+			 (click)="userRole(2)" class="btn btn-primary">User</button></span>
+	</p-dialog>

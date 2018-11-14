@@ -12,6 +12,10 @@ export class ArtistComponent implements OnInit {
   totalSongs: number;
   totalPlaylist: number;
   songsData: any;
+  display = false;
+  display2 = false;
+  editSongsData: any;
+  videoUrl: any;
   selectedType: any;
   page: number;
   types: SelectItem[];
@@ -59,7 +63,14 @@ export class ArtistComponent implements OnInit {
       });
 
   }
-
+  playSong(songdata) {
+    this.videoUrl = songdata;
+    this.display = true;
+  }
+editSong(editData) {
+  this.editSongsData = editData;
+  this.display2 = true;
+}
 
 
 

@@ -33,6 +33,7 @@ import { PaginatorModule } from 'primeng/paginator';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { ForpassComponent } from './forpass/forpass.component';
 import { SearchComponent } from './in/search/search.component';
+import { SafePipe } from '../shared/pipes/safe.pipe';
 
 export function getAuthServiceConfigs() {
   const config = new AuthServiceConfig(
@@ -83,6 +84,7 @@ export function getAuthServiceConfigs() {
     BreadcrumbComponent,
     FooterComponent,
     SignupComponent,
+    SafePipe,
     SongsComponent,
     PlaylistComponent,
     ForpassComponent,

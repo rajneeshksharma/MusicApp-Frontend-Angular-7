@@ -11,6 +11,7 @@ import { AuthGuard } from './shared/services/auth.guard';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { LaddaModule } from 'angular2-ladda';
 import { DataService } from './shared/services/data.service';
+import { SafePipe } from './shared/pipes/safe.pipe';
 
 
 export function getAuthServiceConfigs() {

@@ -42,23 +42,18 @@ export class ForpassComponent implements OnInit {
       email: this.param2
     };
     this.authService.testAuth(userInfo).subscribe(res => {
-      console.log(res);
       this.allgood = true;
     }, err => {
-      console.error(err);
       this.someerror = true;
     });
-    console.log(this.param1, this.param2);
   }
   onSubmit() {
     if (this.forgotPassForm.valid) {
-      console.log(this.forgotPassForm.value);
       const userInfo = {
         email : this.param2,
         newPassword : this.forgotPassForm.value.password
       };
       this.authService.newPass(userInfo).subscribe(res => {
-        console.log(res);
         this.passwordSucess = true;
       },
         err => {

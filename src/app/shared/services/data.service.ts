@@ -13,8 +13,17 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   private subject = new BehaviorSubject<any>(0);
-
   public mysubject = this.subject.asObservable();
+  private subject2 = new BehaviorSubject<any>(0);
+  public mysubject2 = this.subject2.asObservable();
+
+  getEditSongData(): Observable<any> {
+    return this.subject2.asObservable();
+  }
+
+  sendEditSongData(data) {
+    this.subject2.next(data);
+  }
 
   getSongData(): Observable<any> {
     return this.subject.asObservable();
@@ -23,6 +32,7 @@ export class DataService {
   sendSongData(data) {
     this.subject.next(data);
   }
+
 
   gethttpOptions() {
     const httpOptions = {
@@ -48,8 +58,17 @@ export class DataService {
     const header = this.gethttpOptions();
     return this.http.post(`${this.uri}/songs`, data, header);
   }
+
   searchSong(data): Observable <any> {
   const header = this.gethttpOptions();
   return this.http.post(`${this.uri}songs/search`, data, header);
   }
+  editSong(data): Observable <any> {
+    const header = this.gethttpOptions();
+    return this.http.put(`${this.uri}songs/${data.id}`, data.data, header);
+    }
+    deleteSong(data): Observable <any> {
+      const header = this.gethttpOptions();
+      return this.http.delete(`${this.uri}songs/${data}`, header);
+      }
 }

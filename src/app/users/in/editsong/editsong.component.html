@@ -1,0 +1,90 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<!--/.sidebar-->
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+
+	<div class="row">
+		<ol class="breadcrumb">
+			<li><a href="#">
+					<em class="fa fa-music"></em>
+				</a></li>
+			<li class="active">Edit Song</li>
+		</ol>
+	</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">Edit Song</h1>
+		</div>
+	</div>
+<h2 *ngIf="sucess" style="color : green;"> Song edited Sucessesfully</h2>
+<h2 *ngIf="failed" style="color : red;"> Song edited failed</h2>
+	<div class="container">
+		<form class="form-horizontal" [formGroup]="editSongForm" novalidate (ngSubmit)="onSubmit()">
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="title">Song Title:</label>
+				<div class="col-sm-10">
+					<input formControlName="title" id="input" type="text" size="30" placeholder="Girl like you" pInputText>
+
+
+					<div *ngIf="editSongForm.controls['title'].errors && (editSongForm.controls['title'].dirty || editSongForm.controls['title'].touched)">
+						<span class="redxx" *ngIf="editSongForm.controls['title'].errors.required">
+							title is required.
+						</span> </div>
+				</div>
+
+
+
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="url">Song Url:</label>
+				<div class="col-sm-10">
+					<input formControlName="url" id="input" type="text" size="30" placeholder="https://youtu.be/aJOTlE1K90k"
+					 pInputText>
+
+
+					<div *ngIf="editSongForm.controls['url'].errors && (editSongForm.controls['url'].dirty || editSongForm.controls['url'].touched)">
+						<span class="redxx" *ngIf="editSongForm.controls['url'].errors.required">
+							Song url is required.
+						</span> </div>
+				</div>
+      </div>
+      
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="url">Song rating:</label>
+        <div class="col-sm-10">
+  
+          <input formControlName="rating" id="input"type="text" pInputText pKeyFilter="num"  size="30" placeholder="rating"
+           pInputText>
+  
+  
+          <div *ngIf="editSongForm.controls['rating'].errors && (editSongForm.controls['rating'].dirty || editSongForm.controls['rating'].touched)">
+            <span class="redxx" *ngIf="editSongForm.controls['rating'].errors.required">
+              Song rating is required.
+            </span> </div>
+        </div>
+      </div>
+
+
+
+
+      
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button [disabled]="editSongForm.invalid" type="submit" class="btn btn-primary">Add Song</button>
+				</div>
+      </div>
+      
+		</form>
+	</div>
+
+
+
+
+
+
+
+	<app-footer></app-footer>
+	<!--/.row-->
+</div>

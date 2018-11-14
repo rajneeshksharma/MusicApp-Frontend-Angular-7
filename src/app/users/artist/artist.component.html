@@ -52,9 +52,12 @@
                 <div class="row">
                   <div class="col-md-3"> 
                 <button class="btn btn-primary" (click)="playSong(songsData.url)">Play</button></div> 
-                <div class="col-md-6">
+                <div class="col-md-3">
                 <button class="btn btn-primary" (click)="editSong(songsData)">Edit</button>
               </div>
+              <div class="col-md-3">
+                  <button class="btn btn-primary" (click)="deleteSong(songsData)">Delete</button>
+                </div>
               </div>
               </td>
           </tr>
@@ -75,9 +78,7 @@
  <object style="width:100%;height:100%;width: 820px; height: 461.25px; float: none; clear: both; margin: 2px auto;" [data]= "videoUrl | safe">
     </object> 
 </p-dialog>
-<p-dialog header="Edit Song" [(visible)]="display2">
-    <p>{{editSongsData}}</p>
-   </p-dialog>
+<p-toast [style]="{marginTop: '80px'}"></p-toast>
   
 
   <app-footer></app-footer>

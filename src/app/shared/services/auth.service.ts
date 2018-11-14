@@ -17,7 +17,6 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   signUp(user): Observable<any> {
-    console.log(user);
     return this.http.post(`${this.uri}users/signup`, user, httpOptions);
   }
   logIn(user): Observable<any> {
@@ -34,14 +33,12 @@ export class AuthService {
     return this.http.post(`${this.uri}users/forpasskey`, user, httpOptions);
   }
   newPass(user): Observable<any> {
-    console.log(user, 'ffffffffffffffffff');
     return this.http.post(`${this.uri}users/newpass`, user , httpOptions);
   }
   socialcontrol(user): Observable<any> {
     return this.http.post(`${this.uri}users/socialcontrol`, user , httpOptions);
   }
   userRole(user): Observable<any> {
-    console.log(user, 'service');
     return this.http.post(`${this.uri}users/socialRole`, user , httpOptions);
   }
 }

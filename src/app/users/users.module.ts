@@ -20,7 +20,7 @@ import {KeyFilterModule} from 'primeng/keyfilter';
 import { SongsComponent } from './in/songs/songs.component';
 import { TableModule } from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
-
+import {ToastModule} from 'primeng/toast';
 import { PasswordModule } from 'primeng/password';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
@@ -34,7 +34,8 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { ForpassComponent } from './forpass/forpass.component';
 import { SearchComponent } from './in/search/search.component';
 import { SafePipe } from '../shared/pipes/safe.pipe';
-
+import { EditsongComponent } from './in/editsong/editsong.component';
+import {MessageService} from 'primeng/api';
 export function getAuthServiceConfigs() {
   const config = new AuthServiceConfig(
     [
@@ -57,6 +58,7 @@ export function getAuthServiceConfigs() {
     HttpClientModule,
     PasswordModule,
     TableModule,
+    ToastModule,
     InputTextModule,
     CheckboxModule,
     RatingModule,
@@ -88,7 +90,8 @@ export function getAuthServiceConfigs() {
     SongsComponent,
     PlaylistComponent,
     ForpassComponent,
-    SearchComponent
+    SearchComponent,
+    EditsongComponent
   ],
   exports: [
     LoginComponent,
@@ -96,7 +99,7 @@ export function getAuthServiceConfigs() {
     ArtistComponent,
     SignupComponent
   ],
-  providers: [
+  providers: [MessageService,
     {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfigs
